@@ -3,7 +3,7 @@ module TanoshimuUtils
     module ResourceFetch
       extend ActiveSupport::Concern
 
-      class ResourceNotAttachable < StandardError
+      class ResourceNotAttachable < TanoshimuUtils::Error
         def initialize(resource_name)
           super("Resource #{resource_name} not attachable.")
         end

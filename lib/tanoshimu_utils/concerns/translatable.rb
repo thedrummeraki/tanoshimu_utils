@@ -33,8 +33,8 @@ module TanoshimuUtils
                 next
               end
             end
-
             return nil unless through.include?(I18n.locale)
+
             value = send(I18n.locale)
             value = send(default) if value.nil? && default
             value
