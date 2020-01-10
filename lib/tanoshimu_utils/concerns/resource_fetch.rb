@@ -33,7 +33,8 @@ module TanoshimuUtils
           send(:define_method, "#{resource_name}?") do
             (fetch!(resource_name, default_url)&.attached?).present?
           end
-          send(:define_method, "generate_#{resource_name}_url!") do
+          send(:define_method, "generate_#{resource_name}_url!") do |**options|
+            force = options[:force] || false
             return nil unless persisted?
             return true if send("#{resource_url}?") && !force
 
