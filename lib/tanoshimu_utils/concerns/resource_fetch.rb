@@ -24,7 +24,7 @@ module TanoshimuUtils
             attachment = resource_for(resource_name).attachment
             return default_url if attachment.nil?
 
-            if Config.uses_disk_storage?
+            if Rails.configuration.uses_disk_storage
               Rails.application.routes.url_helpers.rails_blob_url(attachment, only_path: true)
             else
               attachment.service_url(expires_in: expiry)
